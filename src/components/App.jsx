@@ -16,7 +16,6 @@ export const paramsForNotify = {
 };
 const perPage = 12;
 
-
 export class App extends Component {
   state = { 
     search: '',
@@ -38,7 +37,6 @@ export class App extends Component {
       this.addPhotoPage(newSearch, newPage);
     }
   }
-
   
   addPhotoPage = (search, page) => {
     this.setState({ loading: true });
@@ -139,6 +137,7 @@ export class App extends Component {
       {/* <h1>Image finder</h1> */}
       <Searchbar onSubmitSearchBar={this.onSubmitSearchBar} />
       {this.state.loading && <Loader />}
+          {/* {error && <h2>Error</h2>} */}
       <div className={css.container}>
           <ImageGallery
             photos={this.state.photos}
@@ -156,24 +155,3 @@ export class App extends Component {
     );
   }
 }
- 
-
-
-
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
