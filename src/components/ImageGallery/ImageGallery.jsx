@@ -1,13 +1,17 @@
-// import { Component } from "react";
+import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
+import css from './ImageGallery.module.css';
 
-// class Posts extends Component {
-// 	state = { 
-// 		posts: [],
-// 	 } 
-// 	render() { 
-// 		const { posts } = this.state;
-// 		return ();
-// 	}
-// }
- 
-// export default Posts;
+export const ImageGallery = ({ photos, onClickImageItem }) => (
+  <div className={css.ImageGallery}>
+    {photos.map(({ id, webformatURL, tags }) => (
+      <ImageGalleryItem
+        id={id}
+        tags={tags}
+        smallUrl={webformatURL}
+        onClickImageItem={onClickImageItem}
+        key={id}
+      />
+    ))}
+  </div>
+);
+
