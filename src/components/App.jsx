@@ -25,17 +25,10 @@ export class App extends Component {
     btnLoadMore: false,
     showModal: false,
     selectedPhoto: null
-   } 
+    } 
 
-   componentDidUpdate(_, prevState) {
-    const prevSearch = prevState.search;
-    const prevPage = prevState.page;
-    const newSearch = this.state.search;
-    const newPage = this.state.page;
-
-    if (prevSearch !== newSearch || prevPage !== newPage) {
-      this.addPhotoPage(newSearch, newPage);
-    }
+  componentDidUpdate(_, prevState) {
+    if (prevState.search !== this.state.search || prevState.page !== this.state.page) { this.addPhotoPage(this.state.search, this.state.page); }
   }
   
   addPhotoPage = (search, page) => {
@@ -47,7 +40,7 @@ export class App extends Component {
         const totalPage = Math.ceil(data.totalHits / perPage);
         if (totalHits === 0) {
           return Notify.failure(
-            'Sorry, there are no images matching your search query. Please try again.',
+            'There are no images matching your search query. Please try again',
             paramsForNotify
           );
         }
@@ -69,7 +62,7 @@ export class App extends Component {
           this.setState({ btnLoadMore: true });
         } else {
           Notify.info(
-            "We're sorry, but you've reached the end of search results.",
+            "You've reached the end of search results",
             paramsForNotify
           );
           this.setState({ btnLoadMore: false });
@@ -124,20 +117,13 @@ export class App extends Component {
       page: 1,
       photos: [],
     });
-
-    // form.reset();
   };
 
-
   render() { 
-    // const { loading, photos, btnLoadMore, showModal, selectedPhoto } =
-    //   this.state;
     return (
-     <div>
-      {/* <h1>Image finder</h1> */}
+    <div>
       <Searchbar onSubmitSearchBar={this.onSubmitSearchBar} />
       {this.state.loading && <Loader />}
-          {/* {error && <h2>Error</h2>} */}
       <div className={css.container}>
           <ImageGallery
             photos={this.state.photos}
@@ -150,7 +136,7 @@ export class App extends Component {
         {this.state.showModal && (
           <Modal selectedPhoto={this.state.selectedPhoto} onClose={this.toggleModal} />
         )}
-     </div>
+    </div>
 
     );
   }

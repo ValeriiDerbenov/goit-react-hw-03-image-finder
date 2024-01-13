@@ -4,9 +4,6 @@ export const Searchbar = ({ onSubmitSearchBar }) => (
   <div className={css.searchbar}>
 		
     <form onSubmit={onSubmitSearchBar} className={css.SearchForm}>
-		<button className={css.searchFormBtn}>
-        <span className={css.searchFormBtnSpan}></span>
-      </button>
       <input
         className={css.searchFormInput}
         type="text"
@@ -15,6 +12,9 @@ export const Searchbar = ({ onSubmitSearchBar }) => (
         autoFocus
         placeholder="Search images and photos"
       />
+		<button className={css.searchFormBtn}>Search
+        {/* <span className={css.searchFormBtnSpan}></span> */}
+    </button>
 			
     </form>
   </div>
