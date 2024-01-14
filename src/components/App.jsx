@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Searchbar } from "./Searchbar/Searchbar";
 import { Loader } from "./Loader/Loader";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
-import { fetchPhoto, onFetchError } from './api/api';
+import { onFetchError, searchPhoto } from './api/api';
 import css from './App.module.css';
 import { Notify } from "notiflix";
 import { Modal } from "./Modal/Modal";
@@ -34,7 +34,7 @@ export class App extends Component {
   addPhotoPage = (search, page) => {
     this.setState({ loading: true });
 
-    fetchPhoto(search, page, perPage)
+    searchPhoto(search, page, perPage)
       .then(data => {
         const { totalHits } = data;
         const totalPage = Math.ceil(data.totalHits / perPage);
