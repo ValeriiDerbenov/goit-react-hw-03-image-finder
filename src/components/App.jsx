@@ -10,9 +10,9 @@ import { Button } from "./Button/Button";
 
 export const paramsForNotify = {
   position: 'center-center',
-  timeout: 3000,
-  width: '400px',
-  fontSize: '24px',
+  timeout: 4000,
+  width: '600px',
+  fontSize: '30px',
 };
 const perPage = 12;
 
@@ -39,7 +39,7 @@ export class App extends Component {
         const { totalHits } = data;
         const totalPage = Math.ceil(data.totalHits / perPage);
         if (totalHits === 0) {
-          return Notify.failure(
+          return Notify.info(
             'There are no images matching your search query. Please try again',
             paramsForNotify
           );

@@ -8,9 +8,9 @@ const URL = 'https://pixabay.com/api/';
 export async function searchPhoto(search, page, perPage) {
   const url = `${URL}?key=${KEY}&q=${search}&page=${page}&per_page=${perPage}&image_type=photo&orientation=horizontal`;
   const response = await axios.get(url);
-  console.log('response.data.hits :>> ', response.data.hits);
-  console.log('page :>> ', page);
-  console.log('perPage :>> ', perPage);
+  // console.log('response.data :>> ', response.data);
+  // console.log('page :>> ', page);
+  // console.log('perPage :>> ', perPage);
   return response.data;
 }
 
