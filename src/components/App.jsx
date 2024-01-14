@@ -74,7 +74,7 @@ export class App extends Component {
       });
   };
 
-  onClickRender = () => {
+  loadMorePhoto = () => {
     this.setState(({ page }) => ({ page: page + 1 }));
   };
 
@@ -131,7 +131,7 @@ export class App extends Component {
           />
         </div>
         {this.state.photos.length !== 0 && this.state.btnLoadMore && (
-          <Button onClickRender={this.onClickRender} />
+          <Button loadMorePhoto={this.loadMorePhoto} />
         )}
         {this.state.showModal && (
           <Modal selectedPhoto={this.state.selectedPhoto} onClose={this.toggleModal} />
