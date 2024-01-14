@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Searchbar } from "./Searchbar/Searchbar";
 import { Loader } from "./Loader/Loader";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
-import { onFetchError, searchPhoto } from './api/api';
+import { loadPhotoError, searchPhoto } from './api/api';
 import css from './App.module.css';
 import { Notify } from "notiflix";
 import { Modal } from "./Modal/Modal";
@@ -68,7 +68,7 @@ export class App extends Component {
           this.setState({ btnLoadMore: false });
         }
       })
-      .catch(onFetchError)
+      .catch(loadPhotoError)
       .finally(() => {
         this.setState({ loading: false });
       });
